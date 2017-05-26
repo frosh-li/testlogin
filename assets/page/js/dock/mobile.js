@@ -40,7 +40,7 @@ var Mobile = function() {
 			async: false,
 			success:function(data){
 				if(data.code == 0){
-					userid = data.msg;
+					userid = data.result;
 					showLoading(false, '');
 					var phoneNumber = $('#txt_mobile').val();
 					if(phoneNumber != null &&　phoneNumber　!= ""){
@@ -490,7 +490,7 @@ var Mobile = function() {
 		// 		"&captchaCode=" + captchaCodeSecond);
 		var url = Common.getMainUrl();
 		var params = {
-			app_key:getAppKey(),
+			app_key:Common.getAppKey(),
 			interface:"mobile/sendSmsCode",
 			userid:userid,
 			mobilePhone:phoneNumber
