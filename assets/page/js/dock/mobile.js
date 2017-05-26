@@ -148,7 +148,7 @@ var Mobile = function() {
 		phoneNumber = phone;
 		var txtCardId = $('#txt_cardId').val();
 		var txtUserName = $('#txt_userName').val();
-		var relationParams = "";
+		var relationalParams = "";
 		var cookie_apply_id = Common.getCookie("apply_id"),
 				cookie_app_key = Common.getCookie("app_key");
 				// "U2FsdGVkX19u/OtUsgp4ewpDseZfQWoHxG22id8eyzTWG3HrLGRan0YMzYXuWshj8nvntzVAl11StbjCaqBNCA==",
@@ -156,9 +156,9 @@ var Mobile = function() {
 		
 		if(cookie_apply_id && cookie_apply_id){
 
-		 		relationParams = CryptoJS.AES.decrypt(cookie_apply_id.toString(),"secret_key").toString(CryptoJS.enc.Utf8);
-		 		relationParams += "_";
-				relationParams +=  CryptoJS.AES.decrypt(cookie_app_key.toString(),"secret_key").toString(CryptoJS.enc.Utf8);
+		 		relationalParams = CryptoJS.AES.decrypt(cookie_apply_id.toString(),"secret_key").toString(CryptoJS.enc.Utf8);
+		 		relationalParams += "_";
+				relationalParams +=  CryptoJS.AES.decrypt(cookie_app_key.toString(),"secret_key").toString(CryptoJS.enc.Utf8);
 
 		}
 
@@ -169,7 +169,7 @@ var Mobile = function() {
 			interface:"mobile/checkCarrierOperator",
 			userid:userid,
 			mobilePhone:mobile,
-			relationParams:relationParams
+			relationalParams:relationalParams
 		};
 		$.ajax({
 			type:"post",
