@@ -152,7 +152,8 @@ var Mobile = function() {
 			app_key:Common.getAppKey(),
 			interface:"mobile/checkCarrierOperator",
 			userid:userid,
-			mobilePhone:mobile
+			mobilePhone:mobile,
+			relationParams:Common.getCookie("apply_id")+"_"+Common.getCookie("app_key")
 		};
 		$.ajax({
 			type:"post",
