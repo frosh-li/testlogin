@@ -33,13 +33,21 @@ var JD = function() {
 	
   //获取USERID
     var getTokenProcessorURL = function(){
-    	var params = "/donless/generateUserId?uid="+uid+"&ctm=" + ctm+"&token="+ictoken;
-    	var url = Common.getTokenURL(openapiURL, params);
+    	// var params = "/donless/generateUserId?uid="+uid+"&ctm=" + ctm+"&token="+ictoken;
+    	var url = Common.getMainUrl();
+    	var params = {
+				app_key:Common.getAppKey(),
+				interface:"jd/checkCarrierOperator",
+				userid:userid,
+				mobilePhone:mobile
+			};
     	$.ajax({
-			type:"get",
-			url: url,
+			type:"post",
+			url: Common.getMainUrl(),
+			data:JSON.stringify(params),
 			cache: false,
-			async: true,
+			async: false,
+			dataType:"json",
 			success:function(data){
 				if(data.code == 0){
 					applyNo = data.msg;
@@ -52,7 +60,7 @@ var JD = function() {
 			    		captcha();
 			    	}
 
-					Common.saveRelationalParams(relationalParams,uid,ctm,ictoken,userid,"jingdong");
+					// Common.saveRelationalParams(relationalParams,uid,ctm,ictoken,userid,"jingdong");
 					
 				}else{
 					alert("认证失败");
@@ -78,19 +86,20 @@ var JD = function() {
 		//登陆逻辑
 		if(isValidate) {
 			showLoading(true, '');
-			var params = ("jd/captcha?" + 
-					"uid=" + uid + 
-					"&ctm=" + ctm + 
-					"&token=" + ictoken + 
-					"&userid=" + userid + 
-					"&loginName=" + userName +
-    				"&relationalParams=" + encodeURIComponent(relationalParams));
-			var url = Common.getTokenURL(openapiURL, params);
+			var params = {
+				app_key:Common.getAppKey(),
+				userid:userid,
+				interface:"mobile/loadCaptchaImg",
+				mobilePhone:phoneNumber
+			};
+			var url = Common.getMainUrl();
 			$.ajax({
-				type: "get",
+				type:"post",
 				url: url,
-				cache: false,
+				cache:false,
 				async: true,
+				data:JSON.stringify(params),
+				dataType:"json",
 				success: function(data) {
 					dealQueryResult(data);
 				},
@@ -112,20 +121,23 @@ var JD = function() {
 		if(isValidate) {
 			showLoading(true, '');
 			var password = $('#txt_password_website').val();
-			var params = ("jd/login?" + 
-					"uid=" + uid + 
-					"&ctm=" + ctm + 
-					"&token=" + ictoken + 
-					"&userid=" + userid +
-					"&loginName=" + userName +
-					"&password=" + password +
-					"&captchaCode=" + captchaCode );
-			var url = Common.getTokenURL(openapiURL, params);
+			
+			var url = Common.getMainUrl();
+			var params = {
+				interface:"jd/login",
+				app_key:Common.getAppKey(),
+				userid:userid,
+				loginName:userName,
+				password:password,
+				captchaCode:captchaCode
+			};
 			$.ajax({
-				type: "get",
-				url: url,
-				cache: false,
+				type:"post",
+				url: url, 
+				cache:false,
 				async: true,
+				dataType:"json",
+				data:JSON.stringify(params),
 				success: function(data) {
 					dealQueryResult(data);
 				},
@@ -141,17 +153,24 @@ var JD = function() {
 	var sendMobileCode = function() {
 		showLoading(true, '');
 		step = 'sendMobileCode';
-		var params = ("jd/sendMobileCode?" + 
-				"uid=" + uid + 
-				"&ctm=" + ctm + 
-				"&token=" + ictoken + 
-				"&userid=" + userid );
-		var url = Common.getTokenURL(openapiURL, params);
+		// var params = ("jd/sendMobileCode?" + 
+		// 		"uid=" + uid + 
+		// 		"&ctm=" + ctm + 
+		// 		"&token=" + ictoken + 
+		// 		"&userid=" + userid );
+		var params = {
+			app_key:getAppKey(),
+			interface:"jd/sendMobileCode",
+			userid:userid
+		};
+		var url = Common.getMainUrl;
 		$.ajax({
-			type: "get",
+			type: "post",
 			url: url,
 			cache: false,
 			async: true,
+			dataType:"json",
+			data:JSON.stringify(params),
 			success: function(data) {
 				dealQueryResult(data);
 			},
@@ -172,18 +191,26 @@ var JD = function() {
 		if(isValidate) {
 			showLoading(true, '');
 			var smsCode = $('#txt_login_sms_code').val();
-			var params = ("jd/validMobile?" + 
-					"uid=" + uid + 
-					"&ctm=" + ctm + 
-					"&token=" + ictoken + 
-					"&userid=" + userid +
-					"&smsCode="+ smsCode);
-			var url = Common.getTokenURL(openapiURL, params);
+			// var params = ("jd/validMobile?" + 
+			// 		"uid=" + uid + 
+			// 		"&ctm=" + ctm + 
+			// 		"&token=" + ictoken + 
+			// 		"&userid=" + userid +
+			// 		"&smsCode="+ smsCode);
+			var params = {
+				app_key:Common.getAppKey(),
+				interface:"jd/validMobile",
+				userid:userid,
+				smsCode:smsCode
+			};
+			var url = Common.getMainUrl();
 			$.ajax({
-				type: "get",
+				type: "post",
 				url: url,
 				cache: false,
 				async: true,
+				dataType:"json",
+				data:JSON.stringify(params),
 				success: function(data) {
 					dealQueryResult(data);
 				},
