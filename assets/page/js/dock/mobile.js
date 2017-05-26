@@ -148,12 +148,28 @@ var Mobile = function() {
 		phoneNumber = phone;
 		var txtCardId = $('#txt_cardId').val();
 		var txtUserName = $('#txt_userName').val();
+		var relationParams = "";
+		var cookie_apply_id = Common.getCookie("apply_id"),
+				cookie_app_key = Common.getCookie("app_key");
+				// "U2FsdGVkX19u/OtUsgp4ewpDseZfQWoHxG22id8eyzTWG3HrLGRan0YMzYXuWshj8nvntzVAl11StbjCaqBNCA==",
+				// "U2FsdGVkX182TH1O0zWkzuYbiDso5Sxw3Eu+OJ7yT5P0Ojgtb/ort+ubU0V+x7RQ"
+		
+		if(cookie_apply_id && cookie_apply_id){
+
+		 		relationParams = CryptoJS.AES.decrypt(cookie_apply_id.toString(),"secret_key").toString(CryptoJS.enc.Utf8);
+		 		relationParams += "_";
+				relationParams +=  CryptoJS.AES.decrypt(cookie_app_key.toString(),"secret_key").toString(CryptoJS.enc.Utf8);
+
+		}
+
+		
+
 		var params = {
 			app_key:Common.getAppKey(),
 			interface:"mobile/checkCarrierOperator",
 			userid:userid,
 			mobilePhone:mobile,
-			relationParams:Common.getCookie("apply_id")+"_"+Common.getCookie("app_key")
+			relationParams:relationParams
 		};
 		$.ajax({
 			type:"post",
