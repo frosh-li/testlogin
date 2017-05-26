@@ -37,7 +37,7 @@ var JD = function() {
     	var url = Common.getMainUrl();
     	var params = {
 				app_key:Common.getAppKey(),
-				interface:"jd/checkCarrierOperator",
+				interface:"donless/generateUserId",
 				userid:userid
 			};
     	$.ajax({
@@ -50,7 +50,7 @@ var JD = function() {
 			success:function(data){
 				if(data.code == 0){
 					applyNo = data.msg;
-					userid = data.msg;
+					userid = data.result;
 					showLoading(false, '');
 					if(loginName != null && loginName != ''){
 			    		$('#txt_user').val(loginName);
@@ -88,8 +88,8 @@ var JD = function() {
 			var params = {
 				app_key:Common.getAppKey(),
 				userid:userid,
-				interface:"mobile/loadCaptchaImg",
-				mobilePhone:phoneNumber
+				interface:"jd/captcha",
+				loginName:loginName
 			};
 			var url = Common.getMainUrl();
 			$.ajax({
