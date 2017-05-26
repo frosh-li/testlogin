@@ -38,8 +38,7 @@ var JD = function() {
     	var params = {
 				app_key:Common.getAppKey(),
 				interface:"jd/checkCarrierOperator",
-				userid:userid,
-				mobilePhone:mobile
+				userid:userid
 			};
     	$.ajax({
 			type:"post",
