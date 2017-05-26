@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="cn" class="no-js">
+<head>
+<meta charset="utf-8" />
+<title>信用卡邮箱接入</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta content="width=device-width, initial-scale=1.0,minimum-scale=1,maximum-scale=1,user-scalable=no" name="viewport" />
+<meta name="author" content="dashboard">
+<meta name="format-detection" content="telephone=no">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="http://open.intecredit.cn/webapis/image/favicon.ico.png" > 
+<link href="assets/plugin/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="assets/plugin/others/css/components.css"	rel="stylesheet" type="text/css" />
+<link href="assets/plugin/waitme/css/waitMe.min.css"	rel="stylesheet" type="text/css" />
+
+<link rel="shortcut icon" href="assets/common/images/mail.jpg">
+<link rel="apple-touch-icon" href="assets/common/images/mail.jpg">
+
+<script src="assets/plugin/jquery/js/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src="assets/common/jshx/common.js" type="text/javascript"></script>
+<script src="assets/common/jshx/config.js" type="text/javascript"></script>
+<script type="text/javascript"> Common.loadCSS("");</script>
+
+</head>
+<body style="overflow-x:hidden;">
+	<div class="page-container">
+		<div class="page-content" >
+			<div class="container">
+				<div class="row text-center margin-top-20" style="margin-bottom:20px;">
+				</div>
+
+				<div id="div_alert" class="alert alert-danger alert-dismissable" style="display:none">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+					<div id="content_alert">
+					</div>
+				</div>
+
+				<div id="div_logo" class="margin-top-20">
+<!-- 					<div class="row text-center"> -->
+<!-- 						<img id="qqembedded" name="maillogo" -->
+<!-- 							src="assets/global/img/maillogo/qqlogo.png" -->
+<!-- 							class="img-responsive center-block" alt="qq"> -->
+
+<!-- 						<hr -->
+<!-- 							style="filter: progid:dximagetransform.microsoft.shadow(color:#987cb9, direction:145, strength:15)" -->
+<!-- 							width="100%" color=#987cb9 size=1> -->
+<!-- 					</div> -->
+					<div class="row text-center">
+						<img id="163simulation" name="maillogo"
+							src="assets/global/img/maillogo/163logo.png"
+							class="img-responsive center-block" alt="163">
+						<hr style="filter: progid:dximagetransform.microsoft.shadow(color:#987cb9, direction:145, strength:15)"
+							width="100%" color=#987cb9 size=1>
+					</div>
+					<div class="row text-center">
+						<img id="126simulation" name="maillogo"
+							src="assets/global/img/maillogo/126logo.png"
+							class="img-responsive center-block" alt="126">
+						<hr style="filter: progid:dximagetransform.microsoft.shadow(color:#987cb9, direction:145, strength:15)"
+							width="100%" color=#987cb9 size=1>
+					</div>
+					
+					<div class="row text-center">
+						<img id="qqphantomJs" name="maillogo"
+							src="assets/global/img/maillogo/qqlogo.png"
+							class="img-responsive center-block" alt="qq">
+						<hr style="filter: progid:dximagetransform.microsoft.shadow(color:#987cb9, direction:145, strength:15)"
+							width="100%" color=#987cb9 size=1>
+					</div>
+					
+					<div class="row text-center">
+						<img id="others" name="maillogo"
+							src="assets/global/img/maillogo/sinalogo.png"
+							class="img-responsive center-block" alt="sina">
+						<hr style="filter: progid:dximagetransform.microsoft.shadow(color:#987cb9, direction:145, strength:15)"
+							width="100%" color=#987cb9 size=1>
+					</div>
+					
+					<div class="row text-center">
+						<img id="others" name="maillogo"
+							src="assets/global/img/maillogo/139logo.png"
+							class="img-responsive center-block" alt="139">
+						<hr style="filter: progid:dximagetransform.microsoft.shadow(color:#987cb9, direction:145, strength:15)"
+							width="100%" color=#987cb9 size=1>
+					</div>
+					
+					<div class="row text-center">
+						<img id="others" name="maillogo"
+							src="assets/global/img/maillogo/hotmaillogo.png"
+							class="img-responsive center-block" alt="hotmail">
+						<hr style="filter: progid:dximagetransform.microsoft.shadow(color:#987cb9, direction:145, strength:15)"
+							width="100%" color=#987cb9 size=1>
+					</div>
+					
+					<div class="row text-center">
+						<img id="others" name="maillogo"
+							src="assets/global/img/maillogo/sohulogo.png"
+							class="img-responsive center-block" alt="sohu">
+						<hr style="filter: progid:dximagetransform.microsoft.shadow(color:#987cb9, direction:145, strength:15)"
+							width="100%" color=#987cb9 size=1>
+					</div>
+					
+					<div class="row text-center">
+						<button type="button" id="others" name="maillogo" class="btn btn-link btn-lg">其他</button>
+					</div>
+				</div>
+
+		</div>
+		</div>
+	</div>
+	<script src="assets/plugin/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="assets/plugin/waitme/js/waitMe.min.js" type="text/javascript"></script>
+
+	<script>
+		jQuery(document).ready(function() {
+			var reqToken = Common.getParameter("token");
+			var color=Common.getParameter("color");
+			var uid=Common.getParameter("uid");
+			var ctm=Common.getParameter("ctm");
+			var Surl=encodeURIComponent(Common.getParameter("Surl"));
+			var Eurl=encodeURIComponent(Common.getParameter("Eurl"));
+			var noAgreement=Common.getParameter("noAgreement");
+
+			$("[name='maillogo']").click(function(){
+					location.href="mail.html?mail=" + this.id+"&color="+color+"&inputstyle=line&uid="+uid+"&ctm="+ctm
+							+"&token="+reqToken+"&Eurl="+Eurl+"&Surl="+Surl+"&noAgreement="+noAgreement;
+				});
+		});
+	</script>
+
+</body>
+</html>

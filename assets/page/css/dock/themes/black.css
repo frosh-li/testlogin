@@ -1,0 +1,61 @@
+/* Button */
+.btn-style.btn {
+  color: #FFFFFF;
+  background-color: #444d58;
+}
+.btn-style.btn:hover, .btn-style.btn:focus, .btn-style.btn:active, .btn-style.btn.active {
+  color: #FFFFFF;
+  background-color: #2386ca;
+}
+.open .btn-style.btn.dropdown-toggle {
+  color: #FFFFFF;
+  background-color: #2386ca;
+}
+.btn-style.btn:active, .btn-style.btn.active {
+  background-image: none;
+  background-color: #1f78b5;
+}
+.btn-style.btn:active:hover, .btn-style.btn.active:hover {
+  background-color: #217ebd;
+}
+.open .btn-style.btn.dropdown-toggle {
+  background-image: none;
+}
+.btn-style.btn.disabled, .btn-style.btn.disabled:hover, .btn-style.btn.disabled:focus, .btn-style.btn.disabled:active, .btn-style.btn.disabled.active, .btn-style.btn[disabled], .btn-style.btn[disabled]:hover, .btn-style.btn[disabled]:focus, .btn-style.btn[disabled]:active, .btn-style.btn[disabled].active, fieldset[disabled] .btn-style.btn, fieldset[disabled] .btn-style.btn:hover, fieldset[disabled] .btn-style.btn:focus, fieldset[disabled] .btn-style.btn:active, fieldset[disabled] .btn-style.btn.active {
+  background-color: #444d58;
+}
+.btn-style.btn .badge {
+  color: #444d58;
+  background-color: #FFFFFF;
+}
+
+/**
+ * 色调
+ */
+.tone{
+	color: #444d58 !important;
+}
+
+/**
+ * checkbox
+ */
+.md-checkbox label > .check2 {
+  border: 2px solid #444d58;
+  border-top: none;
+  border-left: none;
+}
+
+.md-checkbox label > .box2 {
+  border: 2px solid #444d58;
+}
+
+/**
+ * input选中样式
+ */
+.form-group.form-md-line-input.has-tone .form-control.edited:not([readonly]) ~ label:after,
+.form-group.form-md-line-input.has-tone .form-control.edited:not([readonly]) ~ .form-control-focus:after, .form-group.form-md-line-input.has-tone .form-control.form-control-static ~ label:after,
+.form-group.form-md-line-input.has-tone .form-control.form-control-static ~ .form-control-focus:after, .form-group.form-md-line-input.has-tone .form-control:focus:not([readonly]) ~ label:after,
+.form-group.form-md-line-input.has-tone .form-control:focus:not([readonly]) ~ .form-control-focus:after, .form-group.form-md-line-input.has-tone .form-control.focus:not([readonly]) ~ label:after,
+.form-group.form-md-line-input.has-tone .form-control.focus:not([readonly]) ~ .form-control-focus:after {
+  background: #444d58;
+}

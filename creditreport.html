@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="cn" class="no-js">
+<head>
+<meta charset="utf-8" />
+<title>征信报告授权</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta content="width=device-width, initial-scale=1.0,minimum-scale=1,maximum-scale=1,user-scalable=no" name="viewport" />
+<meta name="author" content="dashboard">
+<meta name="format-detection" content="telephone=no">
+<meta name="robots" content="index,follow">
+<!-- BEGIN PACE PLUGIN FILES -->
+<script src="assets/plugin/pace/pace.min.js" type="text/javascript"></script>
+<link rel="icon" href="http://open.intecredit.cn/webapis/image/favicon.ico.png" > 
+<link href="assets/plugin/pace/themes/pace-theme-flash.css" rel="stylesheet" type="text/css"/>
+<!-- END PACE PLUGIN FILES -->
+
+<link href="assets/plugin/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="assets/plugin/others/css/components.min.css"	rel="stylesheet" type="text/css" />
+<link href="assets/plugin/waitme/css/waitMe.min.css"	rel="stylesheet" type="text/css" />
+
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"> 
+<link href="assets/global/plugins/icheck/skins/all.css" rel="stylesheet"/>
+<link href="assets/global/css/components-rounded.css" id="style_components" rel="stylesheet" type="text/css">
+<link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css">  
+<link href="assets/plugin/countdown/css/jquery.countdown.css" rel="stylesheet" type="text/css">  
+
+<link rel="shortcut icon" href="assets/common/images/zx.png">
+<link rel="apple-touch-icon" href="assets/common/images/zx.png">
+
+<script src="assets/plugin/jquery/js/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src="assets/common/jshx/config.js" type="text/javascript"></script>
+<script src="assets/common/js/api.js" type="text/javascript"></script>
+<script src="assets/common/jshx/common.js" type="text/javascript"></script>
+<script src="assets/page/js/dockhx/creditreport.js" type="text/javascript"></script>
+<script type="text/javascript"> Common.loadCSS("");</script> 
+
+</head>
+<body style="overflow-x:hidden;">
+	<div class="page-container">
+		<div class="page-content" >
+			<div class="container">
+				<div class="row text-center margin-top-20" style="margin-bottom:20px;">
+				</div>
+				
+				<div id="div_alert" class="alert alert-danger alert-dismissable" style="display:none">
+					<button id="btn_alert" type="button" class="close" ></button>
+					<div id="content_alert">
+					</div>
+				</div>
+				
+				<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+								<h4 class="modal-title">温馨提示：</h4>
+							</div>
+							<div class="modal-body" id="modalBody">
+								
+							</div>
+							<div class="modal-footer">
+								<button id="modalOk" data-dismiss="modal" class="btn green">OK</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<script type="text/javascript"> CreditReport.loadUI(); </script>
+				<div id="tip2" class="row text-center margin-top-20" style="margin-bottom:20px;margin-left:5px">
+					<i class="glyphicon glyphicon-exclamation-sign" style="color:#888888;float:left;"></i> 
+					<p class="text-left" style="margin:0px 20px 0px 20px;">温馨提示：</p>
+					<p class="text-left" style="margin:0px 20px 0px 20px;">1. 我们不会保存您的账号和密码。</p>
+					<p class="text-left" style="margin:0px 20px 0px 20px;">2. 本页面支持登录和注册功能。</p>
+					<p class="text-left" style="margin:0px 20px 0px 20px;">3. 若忘记登录名或登录密码，请前往央行简版征信报告官网https://ipcrs.pbccrc.org.cn/获取。</p>
+				</div>
+				<!-- 加载动画 -->
+				<div id="div_loading" class="margin-top-20" style="display:none">
+					<img src="assets/global/img/input-spinner.gif" /> 
+					<span id="span_loading">处理中，请耐心稍等...</span>
+				</div>
+							
+			</div>
+		</div>
+	</div>
+	<script src="assets/global/plugins/icheck/icheck.min.js"></script>
+	<script src="assets/global/scripts/metronic.js" type="text/javascript"></script>  
+	<script src="assets/plugin/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="assets/plugin/waitme/js/waitMe.min.js" type="text/javascript"></script>
+		
+	<script src="assets/plugin/countdown/js/jquery.countdown.js" type="text/javascript"></script>
+	<script src="assets/plugin/countdown/js/countdown.js" type="text/javascript"></script>
+	<script>
+		jQuery(document).ready(function() {
+			CreditReport.init();
+		});
+		
+	</script>
+	
+</body>
+</html>

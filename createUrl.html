@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="cn" class="no-js">
+<head>
+<meta charset="utf-8" />
+<title>生成H5页面</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta content="width=device-width, initial-scale=1.0,minimum-scale=1,maximum-scale=1,user-scalable=no" name="viewport" />
+<meta name="author" content="dashboard">
+<meta name="format-detection" content="telephone=no">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="http://open.intecredit.cn/webapis/image/favicon.ico.png" > 
+<link href="assets/plugin/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="assets/plugin/others/css/components.css" rel="stylesheet" type="text/css" />
+
+<link rel="shortcut icon" href="assets/common/images/h5Url.png">
+<link rel="apple-touch-icon" href="assets/common/images/h5Url.png">
+
+<script src="assets/plugin/jquery/js/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src="assets/common/jshx/common.js" type="text/javascript"></script>
+<script src="assets/common/jshx/config.js" type="text/javascript"></script>
+<script type="text/javascript"> Common.loadCSS("");</script>
+
+</head>
+<body>
+	<div class="portlet-body form">
+		<div class="form-body">
+			<div class="form-group">
+				<label>选择一个UID：</label>
+				<select class="form-control" id="div_option">
+<!-- 					<option id="div_0" value="0">请选择</option> -->
+				</select>
+			</div>
+			<button class="btn btn-style btn-block margin-top-20 ladda-button" id="btn_getH5Url" data-style="expand-left">生成URL  <i class="m-icon-swapright m-icon-white"></i></button>
+			<div class="form-group">
+				<textarea class="form-control" rows="20" id="urlValue"></textarea>
+			</div>
+		</div>
+	</div>
+	<script src="assets/plugin/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+	<script>
+		var ictoken
+		var uid
+		var ctm
+		jQuery(document).ready(function() {
+			ictoken = Common.getParameter("token");
+			uid = Common.getParameter("uid");
+			ctm = Common.getParameter("ctm");
+			
+			$("#btn_getH5Url").click(function(){
+				getH5Url();
+			});
+			$("#checkall").click( 
+			  	function(){ 
+				    if(this.checked){ 
+				        $("textarea").attr('checked', true);
+				    }else{ 
+				        $("textarea").attr('checked', false);
+				    } 
+			  	} 
+			);
+			getUidAndUkey();
+		});
+		
+		var getUidAndUkey = function(){
+	    	var params = "/donless/regUser?uid="+uid+"&ctm=" + ctm+"&token="+ictoken;
+	    	var url = Common.getTokenURL(openapiURL, params);
+	    	$.ajax({
+				type:"get",
+				url: url,
+				cache: false,
+				async: true,
+				success:function(data){
+					if(data.code == 0){
+						obj = data.result;
+						$("#div_option").html("<option id='div_0'  value='0' selected='selected'>请选择</option>");
+						for(var key in obj){ //第一层循环取到各个list 
+							var List = obj[key]; 
+							$("#div_option").append("<option id='"+List.uid+"'  value='"+List.ukey+"'>UID："+List.uid+"，NAME："+List.name+"</option>");
+						} 
+					}else{
+						alert("认证失败");
+					}
+				},
+				error:function(data){
+					alert("无法获取token信息");
+				}
+	    	});
+	    }
+		
+		var getH5Url = function(){
+			var quid = $("#div_option").find("option:selected").attr("id");
+			var qukey = $("#div_option").find("option:selected").val();
+
+			var params = "/donless/getH5Url?uid="+uid+"&ctm=" + ctm+"&token="+ictoken+"&quid="+quid+"&qukey="+qukey;
+	    	var url = Common.getTokenURL(openapiURL, params);
+	    	$.ajax({
+				type:"get",
+				url: url,
+				cache: false,
+				async: false,
+				success:function(data){
+					if(data.code == 0){
+						obj = data.result;
+						$("#urlValue").html("");
+						var urlvalue="";
+						for(var key in obj){
+							var qurl = obj[key]; 
+							urlvalue = urlvalue +key+ "\n"+qurl+"\n"+"\n";
+						}
+						$("#urlValue").val(urlvalue); 
+					}else{
+						alert("认证失败");
+					}
+				},
+				error:function(data){
+					alert("无法获取token信息");
+				}
+	    	});
+		}
+	</script>
+
+</body>
+</html>

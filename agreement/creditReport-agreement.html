@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="cn" class="no-js">
+<head>
+<meta charset="utf-8" />
+<title>央行简版征信报告采集服务协议</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta content="width=device-width, initial-scale=1.0,minimum-scale=1,maximum-scale=1,user-scalable=no" name="viewport" />
+<meta name="author" content="dashboard">
+<meta name="format-detection" content="telephone=no">
+<meta name="robots" content="index,follow">
+
+<link rel="icon" href="http://open.intecredit.cn/webapis/image/favicon.ico.png" >
+<style type="text/css">
+body, ol, ul, h1, h2, h3, h4, h5, h6, p, th, td, dl, dd, form, fieldset,
+	legend, input, textarea, select {
+	margin: 0;
+	padding: 0
+}
+
+/*底部登录提示面板*/
+.login_panel{width:100%;height:65px;background:url(../assets/global/img/float_bottom_bg.png) 0 0 repeat-x;overflow:hidden;display:none;position:fixed;bottom:0;}
+.login_panel .panel_center{margin:10px auto;height:45px;overflow:hidden;}
+.login_panel .panel_center p{line-height:45px;margin-top:6px;}
+.login_panel .panel_center .tips{font-size:25px;font-weight:bold;color:#4ba6e5;margin-left:0;text-align:center;line-height:40px;}
+.login_panel .panel_center .close{font-size:25px;height:32px;line-height:32px;text-indent:30px;display:block;color:#e54e4b;} 
+
+body {
+	font: 12px "宋体", "Arial Narrow", HELVETICA;
+	background: #fff;
+	-webkit-text-size-adjust: 100%
+}
+ 
+.layout {
+	width: 1000px;
+	margin: 0 auto;
+	border-bottom: 1px solid #d1d1d1;
+	padding-bottom: 20px;
+}
+
+.layout h1 {
+	font-size: 20px;
+	line-height: 80px;
+	text-indent: 62px;
+	font-family: "微软雅黑";
+	color: #0c0c0c;
+}
+
+.layout h2 {
+	font-size: 18px;
+	font-family: "微软雅黑";
+	height: 38px;
+	line-height: 38px;
+	margin: 38px 0 10px;
+	border-left: 3px solid #187ac7;
+	background: #eaf1fa;
+	text-indent: 16px;
+	color: #187ac7;
+}
+
+.layout h3 {
+	font-size: 14px;
+	line-height: 18px;
+	margin: 20px 0 10px;
+	color: #355a77;
+	font-weight: bold;
+}
+
+.layout p {
+	font-size: 14px;
+	line-height: 32px;
+	margin: 20px 0 10px
+}
+
+.layout ul {
+	margin: 10px 10px 10px 30px
+}
+
+ul, ol {
+	list-style: none;
+}
+
+.layout li {
+	padding-left: 17px;
+	font-size: 14px;
+	line-height: 32px;
+	background: url(http://mat1.gtimg.com/www/images/qq2012/privacyIcon.png)
+		no-repeat left 12px;
+}
+ a {
+	color: #0077b3;
+	text-decoration: none
+}
+
+a:focus, a:hover {
+	color: #23527c;
+	text-decoration: none
+}
+
+a:focus {
+	outline: thin dotted;
+	outline: 5px auto -webkit-focus-ring-color;
+	outline-offset: -2px
+}
+</style>
+</head>
+<body>
+	<div class="layout">
+		<h1 style="text-align: center;">央行简版征信报告数据采集服务协议</h1>
+		<h2 id="q1">引言</h2>
+		<p>本央行简版征信报告采集服务（以下简称“本服务”）由中科慧信（北京）科技有限公司（以下简称“中科慧信”）提供。请在使用本服务前认真阅读、充分理解本协议各条款，特别是涉及到您重大权益或权利与义务的条款。请您审慎阅读并选在接受或不接受本协议。除非您接受本协议所有条款，否则请不要使用本服务。您一经点击同意，即表示您对本协议全部条款已充分理解并完全接受，本协议将即时生效。</p>
+		<h3>此外，为充分保障您个人信息的安全性，中科慧信在此特别声明：</h3>
+		<ul>
+			<li>1.
+				中科慧信仅是信息采集的技术服务提供方。您同意，中科慧信可将采集的您的信息提供给与中科慧信合作的专用的数据处理机构（以下称数据处理机构），由数据处理机构对您的信息进行加工、储存、整理等。中科慧信会采取合理、必要的措施，审查数据处理机构的资质和安全能力，以保护您的隐私和信息安全。</li>
+			<li>2. 中科慧信及/或数据处理机构仅会在您授权第三方获得您的信息情况下，才会将您的信息提供给得到授权的第三方。</li>
+			<li>3.
+				中科慧信不会保存您的账户和密码信息，中科慧信仅会在您每次单独授权的情况下，方予采集相应信息，中科慧信绝不会主动自行采集您的任何信息。</li>
+		</ul>
+
+		<h2 id="q2">第一章 央行简版征信报告采集服务</h2>
+		<p>第一条 央行简版征信报告采集服务是由中科慧信向您提供的一项数据采集技术服务。</p>
+		<p>第二条
+			为保障您的权益，您在使用本服务前，需仔细阅读并充分理解知悉本协议所有条款。已经点击同意本服务协议即视为对本服务协议的充分理解和接受。</p>
+		<p>第三条
+			您在每次使用本服务之前，请仔细阅读本协议相关条款，中科慧信可能根据便于您使用本服务或采取其他与您权益相关的操作或行动，而对本服务协议进行修改。如果您不同意中科慧信对本服务协议所做的修改，您应停止使用本服务。如果您使用了本服务，则视为您接受本服务协议所做的所有约定，并同意遵照执行。</p>
+		<p>第四条
+			基于本服务为免费服务，且中科慧信无法确保数据源数据的准确性、数据采集通道是否持续畅通，因此中科慧信无法保证本服务提供的持续性、及时性、准确性，如您发现经中科慧信采集提供给数据处理机构及经您授权的第三方的数据存在不准确或错误的请，可联系数据处理机构及经您授权的第三方进行更正或删除。</p>
+
+		<h2 id="q3">第二章 用户</h2>
+		<p>第五条 您使用本服务的前提是您依照适用的法律，是具有完全民事权利和民事行为能力，能够独立承担民事责任的自然人。</p>
+		<p>第六条
+			您知晓并承诺同意，您向中科慧信提供的账户是登记在您名下的。否则，您可能会对他人造成侵权。如由此给中科慧信或他人造成损失的，您需依照法律法规规定承担相应的法律责任。</p>
+		<h2 id="q4">第三章 除外责任</h2>
+		<p>第七条
+			因您的过错导致的任何损失，该过错包括但不限于：操作不当、遗忘或泄露密码、密码被他人破解、您使用的计算机或手机系统被第三方侵入、用户委托他人代理使用本服务时他人恶意或不当操作而造成的损失，由您自行负责。除非中科慧信单方故意或重大过失直接导致您遭受损失外，中科慧信不承担责任。</p>
+		<h2 id="q5">第四章 账户安全及管理</h2>
+		<p>第八条
+			您了解并同意，确保基于使用本服务所需账户及密码的机密安全对您非常重要，您应妥善保管这些机密信息。您将对利用该账户及密码所进行一切行动及言论，负完全的责任，并同意以下事项：
+		<p>
+		<ul>
+			<li>1.
+				您不对其他任何人泄露账户和密码，亦不可使用其他人的账户和密码。因黑客、病毒或您的保管疏忽等非中科慧信原因导致您的账户遭他人非法使用的，中科慧信不承担责任；</li>
+			<li>2. 冒充他人账户及密码的，中科慧信及数据处理机构保留追究实际使用人连带责任的权利。</li>
+		</ul>
+		<p>第九条
+			如发现有第三人冒用或盗用您的账户及密码，或其他任何未经您合法授权而使用的情形，您应立即以有效方式通知中科慧信，且马上修改密码，要求中科慧信暂停相关服务。同时，您理解中科慧信对您的请求采取行动需要合理期限，在此之前，中科慧信对第三人使用该服务所导致的损失不承担责任。</p>
+		<p>第十条
+			中科慧信有权基于单方独立判断，在认为可能不利于中科慧信提供服务或涉及违法违规等情形时，可不经通知而先行暂停、中断或终止向您提供本协议项下的全部或部分服务，且无需因此对您或任何第三方承担任何责任。</p>
+		<h3>前述情形包括但不限于：</h3>
+		<ul>
+			<li>1. 中科慧信认为您不是采集信息的信息权利人时；</li>
+			<li>2. 中科慧信发现异常情况或合理理由怀疑操作有风险或违法之虞时；</li>
+			<li>3. 中科慧信认为账户存在未经授权的使用或其他中科慧信认为有风险之情形；</li>
+			<li>4. 中科慧信认为您已违反本协议中规定的各类规则；</li>
+			<li>5. 中科慧信基于上述原因之外，根据其单独判断需要先行暂停、中断或终止向您提供本协议项下的全部或部分用户服务。</li>
+		</ul>
+		<h2 id="q6">第五章 服务中断或故障</h2>
+		<p>第十一条 您同意，因下列原因导致中科慧信及数据处理机构无法正常提供服务的，中科慧信及数据处理机构不承担责任：</p>
+		<ul>
+			<li>1. 中科慧信及数据处理机构等承载本服务系统停机维护期间；</li>
+			<li>2. 您的电脑、手机软硬件和通信线路、供电线路出现故障的；</li>
+			<li>3. 您操作不当或通过非中科慧信及数据处理机构授权或认可的方式使用本服务的；</li>
+			<li>4. 因病毒、木马、恶意程序攻击、网络拥堵、系统不稳定、系统或设备故障、通讯故障、电力故障或政府行为等原因；</li>
+			<li>5. 由于黑客攻击、网络供应商技术调整或故障、网站升级、数据源系统方面的问题等原因造成的本服务中断或延迟；</li>
+			<li>6.
+				因台风、地震、海啸、洪水、停电、战争、恐怖袭击等不可抗力之因素，造成本服务系统障碍不能执行业务的。尽管有前款规定，中科慧信及数据处理机构将采取合理行动积极促使服务恢复正常。</li>
+		</ul>
+		<h2 id="q7">第六章 隐私权保护及授权条款</h2>
+		<p>第十二条 中科慧信不会保存您的账户和密码。</p>
+		<p>第十三条 您授权中科慧信到相应数据源网站去采集您的相应数据信息。</p>
+		<p>第十四条 本服务的数据获取是一次性的，除非得到您的再次授权，否则中科慧信不会发起登录而采集您的信息。</p>
+		<h2 id="q8">第七章 条款的解释、法律适用及终端解决</h2>
+		<p>第十五条 本协议是由您与中科慧信共同签订的，适用于您在本服务项下的全部活动。</p>
+		<p>第十六条
+			如本协议中的任何条款无论因何种原因完全或部分无效或不具有执行力，则应认为该条款可与本协议相分割，并可被尽可能接近各方意图的、能够保证本协议要求的经济目的的、有效的新条款所取代，而且，在此情况下，本协议的其他条款仍然完全有效并具有约束力。</p>
+		<p>第十七条 本协议的有效性、履行与本协议相关的所有事宜，将受中国法律管辖，任何争议仅适用中国法律。</p>
+		<p>第十八条
+			本协议签订地为中国北京市。因本协议所引起的您与中科慧信的任何纠纷或争议，首先应友好协商解决，协商不成的，您在此完全同意将将纠纷或争议提交中国北京市石景山区人民法院。</p>
+	</div>
+	<div class="login_panel" style="display: block;">
+		<div class="panel_center">
+			<p class="tips">
+				<a href="#" onclick="window.close();" >已阅</a>
+			</p>
+		</div>
+	</div>
+</body>
+</html>

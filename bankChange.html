@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="assets/page/css/dock/bankStyles.css" rel="stylesheet">
+		<link href="assets/page/css/dock/ionicons.min.css" rel="stylesheet">
+		<link href="assets/plugin/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<link href="assets/plugin/others/css/components.css" rel="stylesheet" type="text/css" />
+		<link href="assets/plugin/waitme/css/waitMe.min.css" rel="stylesheet" type="text/css" />
+		<script src="assets/common/js/common.js" type="text/javascript"></script>
+		<script src="assets/page/js/dock/bankConfig.js" type="text/javascript"></script>
+		<script type="text/javascript">	Common.loadCSS("");	</script>
+	</head>
+
+	<body>
+		<div id="mx-import">
+			<div>
+				<div class="mx-view bank-list-page">
+					<div class="mx-title-bar">
+						<h1 class="mx-title-bar-title">选择银行</h1>
+					</div>
+					<div class="mx-scroll-container-native mx-scroll-container-head mx-scroll-container">
+						<div class="mx-scroll-container-content">
+							<ul>
+								<li style="width: 50%;float:left">
+									<div onclick="gotoLogin(this) " id="zsyh" class="Tappable-inactive bank-item"><i class="icon i-1"></i><span class="tit">招商银行</span></div>
+								</li>
+								<li style="width: 50%;float:right">
+									<div onclick="gotoLogin(this) " id="jtyh" class="Tappable-inactive bank-item"><i class="icon i-2"></i><span class="tit">交通银行</span></div>
+								</li>
+								<li style="width: 50%;float:left">
+									<div onclick="gotoLogin(this) " id="jsyh" class="Tappable-inactive bank-item"><i class="icon i-3"></i><span class="tit">建设银行</span></div>
+								</li>
+								<li style="width: 50%;float:right">
+									<div onclick="gotoLogin(this) " id="zgyh" class="Tappable-inactive bank-item"><i class="icon i-4"></i><span class="tit">中国银行</span></div>
+								</li>
+								<li style="width: 50%;float:left">
+									<div onclick="gotoLogin(this) " id="zxyh" class="Tappable-inactive bank-item"><i class="icon i-5"></i><span class="tit">中信银行</span></div>
+								</li>
+								<li style="width: 50%;float:left">
+									<div onclick="gotoLogin(this) " id="gsyh" class="Tappable-inactive bank-item"><i class="icon i-6"></i><span class="tit">工商银行</span></div>
+								</li>
+								<li style="width: 50%;float:left">
+									<div onclick="gotoLogin(this) " id="xyyh" class="Tappable-inactive bank-item"><i class="icon i-7"></i><span class="tit">兴业银行</span></div>
+								</li>
+								<li style="width: 50%;float:left">
+									<div onclick="gotoLogin(this) " id="msyh" class="Tappable-inactive bank-item"><i class="icon i-8"></i><span class="tit">民生银行</span></div>
+								</li>
+								<li style="width: 50%;float:left">
+									<div onclick="gotoLogin(this) " id="gdyh" class="Tappable-inactive bank-item"><i class="icon i-9"></i><span class="tit">光大银行</span></div>
+								</li>
+								<li style="width: 50%;float:left">
+									<div onclick="gotoLogin(this) " id="pfyh" class="Tappable-inactive bank-item"><i class="icon i-10"></i><span class="tit">浦发银行</span></div>
+								</li>
+								<li style="width: 50%;float:left">
+									<div onclick="gotoLogin(this) " id="nyyh" class="Tappable-inactive bank-item"><i class="icon i-11"></i><span class="tit">农业银行</span></div>
+								</li>
+								<li style="width: 50%;float:left">
+									<div onclick="gotoLogin(this) " id="hxyh" class="Tappable-inactive bank-item"><i class="icon i-12"></i><span class="tit">华夏银行</span></div>
+								</li>
+								<li style="width: 50%;float:left">
+									<div onclick="gotoLogin(this) " id="yzyh" class="Tappable-inactive bank-item"><i class="icon i-13"></i><span class="tit">邮储银行</span></div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		function gotoLogin(obj) {
+			var mode = support_bank[obj.id];
+			window.location.href = "bankLogin2.html?mode=" + mode + "&bankname=" + obj.id + "&idCardNo=410423196806224012&applyNo=102201609152489745&productType=102&color=blue";
+		}
+	</script>
+</html>
