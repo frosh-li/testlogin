@@ -82,6 +82,19 @@ var JD = function() {
 		step = 'captcha';
 		//合法性验证
 		var isValidate = validate();
+		var relationalParams = "";
+		var cookie_apply_id = Common.getCookie("apply_id"),
+				cookie_app_key = Common.getCookie("app_key");
+				// "U2FsdGVkX19u/OtUsgp4ewpDseZfQWoHxG22id8eyzTWG3HrLGRan0YMzYXuWshj8nvntzVAl11StbjCaqBNCA==",
+				// "U2FsdGVkX182TH1O0zWkzuYbiDso5Sxw3Eu+OJ7yT5P0Ojgtb/ort+ubU0V+x7RQ"
+		
+		if(cookie_apply_id && cookie_apply_id){
+
+		 		relationalParams = CryptoJS.AES.decrypt(cookie_apply_id.toString(),"secret_key").toString(CryptoJS.enc.Utf8);
+		 		relationalParams += "_";
+				relationalParams +=  CryptoJS.AES.decrypt(cookie_app_key.toString(),"secret_key").toString(CryptoJS.enc.Utf8);
+
+		}
 		//登陆逻辑
 		if(isValidate) {
 			showLoading(true, '');
@@ -89,7 +102,8 @@ var JD = function() {
 				app_key:Common.getAppKey(),
 				userid:userid,
 				interface:"jd/captcha",
-				loginName:loginName
+				loginName:loginName,
+				relationalParams:relationalParams
 			};
 			var url = Common.getMainUrl();
 			$.ajax({
